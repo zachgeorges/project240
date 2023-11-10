@@ -13,5 +13,6 @@ See course web page [Project: C++ Web Service](https://cmsc240-f23.github.io/pro
 
 ## Project Proposal
 
-We will create a webservice that acts as a travel guide for a specified city and dates. For this, we will use a flight service API (eg. KIWI), a hotel service API (eg, Booking), a car rental service API, weather tracker API, and/or restaurant API (YELP). The goal is to make a one platform service where all information for a trip can be found. We will most likely include blocking by price range.
+This web service is an easy-to-use platform for customers to order tacos online from their favorite tacos restaurant. It allows for customization of orders, viewing of menu items, and provides a quick, hassle-free ordering process.
+This service aims to enhance the Tacos customer experience by offering a digital solution for easy and personalized Tacos ordering. It targets tacos restaurants that have a web site that handles online orders.
 
