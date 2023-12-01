@@ -42,32 +42,34 @@ Data Storage and Retrieval:
 ## Use Case Description
 
 Viewing the Menu
+
     As a user, I want to view the complete menu of tacos, including details like meat and sauces. I can also add, modify and delete elements of the menu.
 
 Customizing Tacos
+
     As a user, I want to customize tacos by selecting my preferred meat, and sauces. 
 
 Viewing Nutritional Information
+
     As a user, I want to view the nutritional information of each ingredient.
 
 Creating an Order
+
     As a user, I want to easily add tacos to my order, so that I can select multiple items from the menu for my meal.
 
 Modifying the Order
+
     As a user, I want the ability to modify my order (add or remove items).
 
 Account Management
+
     As a returning customer, I want to create and manage my account, storing my username, contact details, and order history (maybe having discounts)
 
 Order History Review
+
     As a customer, I want to view my previous orders, so that I can reorder my favorites or use them as a reference for new orders.
 
 ## List Of Resources
-
-Menu Resource
-
-    Description: This resource provides the complete menu of tacos, including available meats, sauces, and other customizable options. It allows users to view all the available options for building their tacos.
-    Functionality: Viewing, adding, modifying, and deleting menu items.
 
 Meat Resource
 
@@ -93,12 +95,6 @@ Order Resource
 
     Description: This resource manages the creation and modification of customer orders. It allows users to add tacos to their order, customize them, and modify the order.
     Functionality: Adding tacos to an order, customizing orders, modifying orders (add/remove items), and deleting orders.
-
-Customer Account Resource
-
-    Description: Manages customer accounts, storing personal information such as username, contact details.
-    Functionality: Account creation, management ect.
-
 
 
 ## List of End Points
@@ -182,37 +178,6 @@ Order Resource Endpoints
     HTTP Status Code: 200 (OK).
     Error: 404 (Not Found) if order not found.
 
-Customer Account Resource Endpoints
-
-    GET /customer/{customerId}
-
-    Retrieves a customer's account details.
-    Request Parameters: customerId.
-    Expected Response: JSON object with customer details.
-    HTTP Status Code: 200 (OK).
-    Error: 404 (Not Found) if customer not found.
-    POST /customer
-
-    Creates a new customer account.
-    Request Body: JSON object with customer details.
-    Expected Response: Confirmation message with account details.
-    HTTP Status Code: 201 (Created).
-    Error: 400 (Bad Request) for invalid input.
-    PUT /customer/{customerId}
-
-    Updates an existing customer account.
-    Request Parameters: customerId.
-    Request Body: JSON object with updated account details.
-    Expected Response: Confirmation message with updated account details.
-    HTTP Status Code: 200 (OK).
-    Error: 404 (Not Found) if customer not found.
-    DELETE /customer/{customerId}
-
-    Deletes a customer's account.
-    Request Parameters: customerId.
-    Expected Response: Confirmation message of account deletion.
-    HTTP Status Code: 200 (OK).
-    Error: 404 (Not Found) if customer not found.
 
 ## UML Diagrams
 

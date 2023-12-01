@@ -2,6 +2,7 @@
 #define SODA_H
 
 #include <string>
+#include <crow.h>
 
 /**
  * @brief Represents the soda information.
@@ -12,18 +13,27 @@
 class Soda
 {
 public:
+    // Constructor
     Soda() { }
-    Soda(std::string sodaSize, std::string sodaType, bool isZeroCalorie)
-        : size(sodaSize), type(sodaType), isZero(isZeroCalorie) { }
+    Soda(crow::json::rvalue readValueJson);
     
+    // Size Get/Set
     std::string getSize() { return size; }
     void setSize(std::string sodaSize) { size = sodaSize; }
 
+    // Type Get/Set
     std::string getType() { return type; }
     void setType(std::string sodaType) { type = sodaType; }
 
+    // ZeroCalorie Get/Set
     bool getIsZeroCalorie() { return isZero; }
     void setIsZeroCalorie(bool isZeroCalorie) { isZero = isZeroCalorie; }
+
+    // Convert to JSON
+    crow::json::wvalue convertToJson();
+
+    // Update from JSON
+    void updateFromJson(crow::json::rvalue readValueJson);
 
 private:
     std::string size;
@@ -32,3 +42,5 @@ private:
 };
 
 #endif // SODA_H
+
+//Might need const keyword for getters 

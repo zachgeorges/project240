@@ -1,26 +1,40 @@
 #ifndef SAUCE_H
 #define SAUCE_H
 
+#include <string>
+#include <crow.h>
 #include "Ingredient.h"
 
 /**
  * @brief Represents a type of sauce ingredient.
  * 
- * The Sauce class is derived from the Ingredient template
+ * The Sauce class is derived from the Ingredient class
  * and includes specific properties for a sauce ingredient.
  */
-class Sauce : public Ingredient<Sauce>
+class Sauce : public Ingredient
 {
 public:
-    Sauce() : Ingredient<Sauce>() {}
-    Sauce(std::string name, int calories, bool isSpicy)
-        : Ingredient<Sauce>(name, calories), spicy(isSpicy) {}
+    // Constructor
+    Sauce() {}
+    Sauce(crow::json::rvalue readValueJson);
 
-    bool getIsSpicy() const { return spicy; }
-    void setIsSpicy(bool isSpicy) { spicy = isSpicy; }
+    // Type get/set
+    //std::string getType() const { return sauceType; }
+    //void setType(std::string type) { sauceType = type; }
+
+    // IsSpicy get/set
+    bool getIsSpicy() const { return isSpicy; }
+    void setIsSpicy(bool spicyParam) { isSpicy = spicyParam; }
+
+    // Convert to JSON
+    crow::json::wvalue convertToJson();
+
+    // Update from JSON
+    void updateFromJson(crow::json::rvalue readValueJson);
 
 private:
-    bool spicy;
+    std::string sauceType;
+    bool isSpicy;
 };
 
 #endif // SAUCE_H
