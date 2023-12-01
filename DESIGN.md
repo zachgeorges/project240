@@ -11,8 +11,13 @@ This web service is developed to address the need for a quick and convenient way
 
 ## Stakeholders
 
-Customers: Individuals who will use the service for ordering tacos online. They are the primary users and beneficiaries of the service, seeking convenience, speed, and customization in their orders.
-Tacos Restaurant Owners/Managers: Business owners who will adopt this web service to offer online ordering to their customers. They are interested in increasing sales, improving customer satisfaction, and streamlining the ordering process.
+Customers: 
+
+    Individuals who will use the service for ordering tacos online. They are the primary users and beneficiaries of the service, seeking convenience, speed, and customization in their orders.
+
+Tacos Restaurant Owners/Managers: 
+
+    Business owners who will adopt this web service to offer online ordering to their customers. They are interested in increasing sales, improving customer satisfaction, and streamlining the ordering process.
 
 ## Functional Requirements
 
@@ -130,15 +135,19 @@ Menu Resource Endpoints
     Error: 404 (Not Found) if item not found.
 
 Meat Resource Endpoints
+
     Similar structure as Menu Resource Endpoints, with URLs like /meat, /meat/{meatId}, supporting GET, POST, PUT, DELETE methods.
 
 Sauce Resource Endpoints
+
     Similar structure as Meat Resource Endpoints, with URLs like /sauce, /sauce/{sauceId}, supporting GET, POST, PUT, DELETE methods.
 
 Soda Resource Endpoints
+
     Similar structure as Sauce Resource Endpoints, with URLs like /soda, /soda/{sodaId}, supporting GET, POST, PUT, DELETE methods.
 
 Tacos Resource Endpoints
+
     Similar structure as Soda Resource Endpoints, with URLs like /tacos, /tacos/{tacoId}, supporting GET, POST, PUT, DELETE methods.
 
 Order Resource Endpoints
