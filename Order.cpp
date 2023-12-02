@@ -19,7 +19,7 @@ json::wvalue Order::convertToJson()
     int index = 0;
     for (Tacos taco : tacos) 
     {
-        writeJson["tacos"][index] = taco.convertToJson();
+        writeJson["tacos"][index]["id"] = taco.convertToJson();
         index++;
     }
 
@@ -27,7 +27,7 @@ json::wvalue Order::convertToJson()
     index = 0;
     for (Soda soda : sodas) 
     {
-        writeJson["sodas"][index] = soda.convertToJson();
+        writeJson["sodas"][index]["id"] = soda.convertToJson();
         index++;
     }
 

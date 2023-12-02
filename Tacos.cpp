@@ -21,7 +21,7 @@ json::wvalue Tacos::convertToJson()
     int index = 0;
     for (Meat meat : meats) 
     {
-        writeJson["meats"][index][id] = meat.convertToJson();
+        writeJson["meats"][index]["id"] = meat.convertToJson();
         index++;
     }
 
@@ -29,7 +29,7 @@ json::wvalue Tacos::convertToJson()
     index = 0;
     for (Sauce sauce : sauces) 
     {
-        writeJson["sauces"][index][id] = sauce.convertToJson();
+        writeJson["sauces"][index]["id"] = sauce.convertToJson();
         index++;
     }
 
