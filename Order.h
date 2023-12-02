@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "Tacos.h"
+#include "Soda.h"
 
 class Order
 {
@@ -19,7 +20,11 @@ public:
 
     // tacos get/set
     std::vector<Tacos> getTacos() const { return tacos; }
-    void setTacos(std::vector<Tacos>& tacosParam) { tacos = tacosParam; }
+    void setTacos(const std::vector<Tacos>& tacosParam) { tacos = tacosParam; }
+
+    // sodas get/set
+    std::vector<Soda> getSodas() const { return sodas; }
+    void setSodas(const std::vector<Soda>& sodasParam) { sodas = sodasParam; }
 
     // cost get/set
     float getCost() const { return cost; }
@@ -34,6 +39,7 @@ public:
 private:
     std::string id;
     std::vector<Tacos> tacos;
+    std::vector<Soda> sodas;
     float cost;
 };
 

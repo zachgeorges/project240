@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "size": "Medium",
+        "type": "Cola",
+        "isZeroCalorie": false
+    },
+    {
+        "id": "2",
+        "size": "Large",
+        "type": "Lemon-Lime",
+        "isZeroCalorie": true
+    }
+]

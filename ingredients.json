@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "name": "Flour",
+        "calories": 100,
+        "quantity": 200
+    },
+    {
+        "id": "2",
+        "name": "Sugar",
+        "calories": 50,
+        "quantity": 150
+    }
+]

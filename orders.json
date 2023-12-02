@@ -1,0 +1,66 @@
+[
+    {
+        "id": "1",
+        "tacos": [
+            {
+                "id": "1",
+                "ingredients": [
+                    {
+                        "id": "1",
+                        "name": "Flour",
+                        "calories": 100,
+                        "quantity": 200
+                    },
+                    {
+                        "id": "2",
+                        "name": "Tomato Sauce",
+                        "calories": 30,
+                        "quantity": 100,
+                        "isSpicy": false
+                    },
+                    {
+                        "id": "3",
+                        "name": "Chicken",
+                        "calories": 150,
+                        "quantity": 300,
+                        "isPork": false
+                    }
+                ],
+                "cost": 8.99
+            }
+        ],
+        "cost": 8.99
+    },
+    {
+        "id": "2",
+        "tacos": [
+            {
+                "id": "4",
+                "ingredients": [
+                    {
+                        "id": "4",
+                        "name": "Sugar",
+                        "calories": 50,
+                        "quantity": 150
+                    },
+                    {
+                        "id": "5",
+                        "name": "Barbecue Sauce",
+                        "calories": 50,
+                        "quantity": 120,
+                        "isSpicy": true
+                    },
+                    {
+                        "id": "6",
+                        "name": "Beef",
+                        "calories": 200,
+                        "quantity": 250,
+                        "isPork": false
+                    }
+                ],
+                "cost": 10.99
+            }
+        ],
+        "cost": 10.99
+    }
+]

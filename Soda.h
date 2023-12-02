@@ -17,16 +17,20 @@ public:
     Soda() { }
     Soda(crow::json::rvalue readValueJson);
     
+    // Id Get/Set
+    std::string getId() const { return id; }
+    void setId(std::string sodaId) { id = sodaId; }
+
     // Size Get/Set
-    std::string getSize() { return size; }
+    std::string getSize() const { return size; }
     void setSize(std::string sodaSize) { size = sodaSize; }
 
     // Type Get/Set
-    std::string getType() { return type; }
+    std::string getType() const { return type; }
     void setType(std::string sodaType) { type = sodaType; }
 
     // ZeroCalorie Get/Set
-    bool getIsZeroCalorie() { return isZero; }
+    bool getIsZeroCalorie() const { return isZero; }
     void setIsZeroCalorie(bool isZeroCalorie) { isZero = isZeroCalorie; }
 
     // Convert to JSON
@@ -36,11 +40,10 @@ public:
     void updateFromJson(crow::json::rvalue readValueJson);
 
 private:
+    std::string id;
     std::string size;
     std::string type;
     bool isZero;
 };
 
 #endif // SODA_H
-
-//Might need const keyword for getters 

@@ -8,15 +8,18 @@
  * @brief Represents an ingredient.
  * 
  * The Ingredient class is a base class for other specific ingredient classes,
- * such as Meat and Sauce. It includes common properties like calories, name, and quantity.
+ * such as Meat and Sauce. It includes common properties like calories, name, quantity, and id.
  */
-
 class Ingredient 
 {
 public:
     // Constructor
     Ingredient() {}
     Ingredient(crow::json::rvalue readValueJson);
+
+    // Id get/set
+    std::string getId() const { return id; }
+    void setId(std::string ingredientId) { id = ingredientId; }
 
     // Name get/set
     std::string getName() const { return name; }
@@ -37,10 +40,10 @@ public:
     void updateFromJson(crow::json::rvalue readValueJson);
     
 private:
+    std::string id;
     std::string name;
     int calories;
     int quantity;
-
 };
 
 #endif // INGREDIENT_H
