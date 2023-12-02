@@ -3,9 +3,6 @@
 using namespace std;
 using namespace crow;
 
-extern map<std::string, Tacos> tacosMap;
-extern map<std::string, Soda> sodasMap;
-
 Order::Order(json::rvalue readValueJson)  
 {
     updateFromJson(readValueJson);
@@ -18,22 +15,20 @@ json::wvalue Order::convertToJson()
     writeJson["id"] = id;
     writeJson["cost"] = cost;
 
-    // Convert tacos to json (Save only the ids)
-    int tacoIndex = 0;
+    // Convert tacos to JSON
+    int index = 0;
     for (Tacos taco : tacos) 
     {
-        writeJson["tacos"][tacoIndex]["id"] = taco.getId();
-        // Add other taco properties if needed
-        // writeJson["tacos"][tacoIndex]["cost"] = taco.getCost();
+        writeJson["tacos"][index] = taco.convertToJson();
+        index++;
     }
 
-    // Convert sodas to json (Save only the ids)
-    int sodaIndex = 0;
+    // Convert sodas to JSON
+    index = 0;
     for (Soda soda : sodas) 
     {
-        writeJson["sodas"][sodaIndex]["id"] = soda.getId();
-        // Add other soda properties if needed
-        // writeJson["sodas"][sodaIndex]["cost"] = soda.getCost();
+        writeJson["sodas"][index] = soda.convertToJson();
+        index++;
     }
 
     return writeJson;
@@ -48,16 +43,14 @@ void Order::updateFromJson(json::rvalue readValueJson)
     // Setting tacos
     for (json::rvalue tacoReadValueJson : readValueJson["tacos"])
     {
-        tacos.push_back(tacosMap.at(tacoReadValueJson["id"].s()));
-        // Add other taco properties if needed
-        // tacos.back().setCost(tacoReadValueJson["cost"].d());
+        Tacos taco(tacoReadValueJson);
+        tacos.push_back(taco);
     }
 
     // Setting sodas
     for (json::rvalue sodaReadValueJson : readValueJson["sodas"])
     {
-        sodas.push_back(sodasMap.at(sodaReadValueJson["id"].s()));
-        // Add other soda properties if needed
-        // sodas.back().setCost(sodaReadValueJson["cost"].d());
+        Soda soda(sodaReadValueJson);
+        sodas.push_back(soda);
     }
 }

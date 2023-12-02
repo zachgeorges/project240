@@ -1,10 +1,9 @@
-// Sauce.cpp
 #include "Sauce.h"
 
 using namespace std;
 using namespace crow;
 
-Sauce::Sauce(json::rvalue readValueJson) : Ingredient(readValueJson)  
+Sauce::Sauce(json::rvalue readValueJson)  
 {
     updateFromJson(readValueJson);
 }
@@ -12,18 +11,23 @@ Sauce::Sauce(json::rvalue readValueJson) : Ingredient(readValueJson)
 // Convert to JSON
 json::wvalue Sauce::convertToJson() 
 {
+    // Convert the base Ingredient part
     json::wvalue writeJson = Ingredient::convertToJson();
-    // Add Sauce-specific properties
-    // writeJson["type"] = sauceType;
+
+    // Add Sauce-specific details
+    writeJson["sauceType"] = sauceType;
     writeJson["isSpicy"] = isSpicy;
+
     return writeJson;
 }
 
 // Update from JSON
 void Sauce::updateFromJson(json::rvalue readValueJson) 
 {
-    Ingredient::updateFromJson(readValueJson);
-    // Update Sauce-specific properties
-    // sauceType = readValueJson["type"].s();
+    // Update the base Ingredient part
+    Ingredient::updateFromJson(readValueJson); 
+
+    // Update Sauce-specific details
+    sauceType = readValueJson["sauceType"].s();
     isSpicy = readValueJson["isSpicy"].b();
 }

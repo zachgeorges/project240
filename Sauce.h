@@ -1,16 +1,10 @@
 #ifndef SAUCE_H
 #define SAUCE_H
 
-#include <string>
 #include <crow.h>
+#include <string>
 #include "Ingredient.h"
 
-/**
- * @brief Represents a type of sauce ingredient.
- * 
- * The Sauce class is derived from the Ingredient class
- * and includes specific properties for a sauce ingredient.
- */
 class Sauce : public Ingredient
 {
 public:
@@ -18,19 +12,19 @@ public:
     Sauce() {}
     Sauce(crow::json::rvalue readValueJson);
 
-    // Type get/set
-    //std::string getType() const { return sauceType; }
-    //void setType(std::string type) { sauceType = type; }
-
-    // IsSpicy get/set
+    // Getters
+    std::string getSauceType() const { return sauceType; }
     bool getIsSpicy() const { return isSpicy; }
+
+    // Setters
+    void setSauceType(std::string sauceTypeParam) { sauceType = sauceTypeParam; }
     void setIsSpicy(bool spicyParam) { isSpicy = spicyParam; }
 
-    // Convert to JSON
-    crow::json::wvalue convertToJson();
+    // Convert to JSON.
+    crow::json::wvalue convertToJson() override;
 
-    // Update from JSON
-    void updateFromJson(crow::json::rvalue readValueJson);
+    // Update from JSON.
+    void updateFromJson(crow::json::rvalue readValueJson) override;
 
 private:
     std::string sauceType;

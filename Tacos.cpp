@@ -4,6 +4,8 @@ using namespace std;
 using namespace crow;
 
 extern map<std::string, Ingredient> ingredientsMap;
+extern map<std::string, Meat> meatsMap;
+extern map<std::string, Sauce> saucesMap;
 
 Tacos::Tacos(json::rvalue readValueJson)  
 {
@@ -15,16 +17,29 @@ json::wvalue Tacos::convertToJson()
 {
     json::wvalue writeJson;
     writeJson["id"] = id;
-    writeJson["cost"] = cost;
 
-    // Convert ingredients to json (Save only the names)
+    // Convert ingredients to JSON
     int index = 0;
     for (Ingredient ingredient : ingredients) 
     {
-        writeJson["ingredients"][index]["name"] = ingredient.getName();
-        // Add other ingredient properties if needed
-        // writeJson["ingredients"][index]["calories"] = ingredient.getCalories();
-        // writeJson["ingredients"][index]["quantity"] = ingredient.getQuantity();
+        writeJson["ingredients"][index] = ingredient.convertToJson();
+        index++;
+    }
+
+    // Convert meats to JSON
+    index = 0;
+    for (Meat meat : meats) 
+    {
+        writeJson["meats"][index] = meat.convertToJson();
+        index++;
+    }
+
+    // Convert sauces to JSON
+    index = 0;
+    for (Sauce sauce : sauces) 
+    {
+        writeJson["sauces"][index] = sauce.convertToJson();
+        index++;
     }
 
     return writeJson;
@@ -34,14 +49,22 @@ json::wvalue Tacos::convertToJson()
 void Tacos::updateFromJson(json::rvalue readValueJson) 
 {
     id = readValueJson["id"].s();
-    cost = readValueJson["cost"].d();
 
     // Setting ingredients
     for (json::rvalue ingredientReadValueJson : readValueJson["ingredients"])
     {
-        ingredients.push_back(ingredientsMap.at(ingredientReadValueJson["name"].s()));
-        // Add other ingredient properties if needed
-        // ingredients.back().setCalories(ingredientReadValueJson["calories"].i());
-        // ingredients.back().setQuantity(ingredientReadValueJson["quantity"].i());
+        ingredients.push_back(ingredientsMap.at(ingredientReadValueJson["id"].s()));
+    }
+
+    // Setting meats
+    for (json::rvalue meatReadValueJson : readValueJson["meats"])
+    {
+        meats.push_back(meatsMap.at(meatReadValueJson["id"].s()));
+    }
+
+    // Setting sauces
+    for (json::rvalue sauceReadValueJson : readValueJson["sauces"])
+    {
+        sauces.push_back(saucesMap.at(sauceReadValueJson["id"].s()));
     }
 }

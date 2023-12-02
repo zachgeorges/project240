@@ -1,44 +1,34 @@
 #ifndef INGREDIENT_H
 #define INGREDIENT_H
 
-#include <string>
 #include <crow.h>
+#include <string>
 
-/**
- * @brief Represents an ingredient.
- * 
- * The Ingredient class is a base class for other specific ingredient classes,
- * such as Meat and Sauce. It includes common properties like calories, name, quantity, and id.
- */
-class Ingredient 
+class Ingredient
 {
 public:
-    // Constructor
+    // Constructors
     Ingredient() {}
     Ingredient(crow::json::rvalue readValueJson);
 
-    // Id get/set
+    // Getters
     std::string getId() const { return id; }
-    void setId(std::string ingredientId) { id = ingredientId; }
-
-    // Name get/set
     std::string getName() const { return name; }
-    void setName(std::string ingredientName) { name = ingredientName; }
-
-    // Calories get/set
     int getCalories() const { return calories; }
-    void setCalories(int ingredientCalories) { calories = ingredientCalories; }
-
-    // Quantity get/set 
     int getQuantity() const { return quantity; }
-    void setQuantity(int ingredientQuantity) { quantity = ingredientQuantity; }
 
-    // Convert to JSON
-    crow::json::wvalue convertToJson();
+    // Setters
+    void setId(std::string idParam) { id = idParam; }
+    void setName(std::string nameParam) { name = nameParam; }
+    void setCalories(int caloriesParam) { calories = caloriesParam; }
+    void setQuantity(int quantityParam) { quantity = quantityParam; }
 
-    // Update from JSON
-    void updateFromJson(crow::json::rvalue readValueJson);
-    
+    // Convert to JSON.
+    virtual crow::json::wvalue convertToJson();
+
+    // Update from JSON.
+    virtual void updateFromJson(crow::json::rvalue readValueJson);
+
 private:
     std::string id;
     std::string name;

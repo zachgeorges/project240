@@ -14,27 +14,23 @@ public:
     Order() {}
     Order(crow::json::rvalue readValueJson);
 
-    // id get/set
+    // Getters
     std::string getId() const { return id; }
-    void setId(std::string idParam) { id = idParam; }
-
-    // tacos get/set
     std::vector<Tacos> getTacos() const { return tacos; }
-    void setTacos(const std::vector<Tacos>& tacosParam) { tacos = tacosParam; }
-
-    // sodas get/set
     std::vector<Soda> getSodas() const { return sodas; }
-    void setSodas(const std::vector<Soda>& sodasParam) { sodas = sodasParam; }
-
-    // cost get/set
     float getCost() const { return cost; }
+
+    // Setters
+    void setId(std::string idParam) { id = idParam; }
+    void setTacos(const std::vector<Tacos>& tacosParam) { tacos = tacosParam; }
+    void setSodas(const std::vector<Soda>& sodasParam) { sodas = sodasParam; }
     void setCost(float costParam) { cost = costParam; }
 
     // Convert to JSON.
-    virtual crow::json::wvalue convertToJson();
+    crow::json::wvalue convertToJson();
 
     // Update from JSON.
-    virtual void updateFromJson(crow::json::rvalue readValueJson);
+    void updateFromJson(crow::json::rvalue readValueJson);
 
 private:
     std::string id;

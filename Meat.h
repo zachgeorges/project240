@@ -5,12 +5,6 @@
 #include <string>
 #include "Ingredient.h"
 
-/**
- * @brief Represents a type of meat ingredient.
- * 
- * The Meat class is derived from the Ingredient class
- * and includes specific properties for a meat ingredient.
- */
 class Meat : public Ingredient
 {
 public:
@@ -18,19 +12,19 @@ public:
     Meat() {}
     Meat(crow::json::rvalue readValueJson);
 
-    // Type get/set
-    //std::string getType() const { return meatType; }
-    //void setType(std::string type) { meatType = type; }
-
-    // IsPork get/set
+    // Getters
+    std::string getMeatType() const { return meatType; }
     bool getIsPork() const { return isPork; }
+
+    // Setters
+    void setMeatType(std::string meatTypeParam) { meatType = meatTypeParam; }
     void setIsPork(bool porkParam) { isPork = porkParam; }
 
-    // Convert to JSON
-    crow::json::wvalue convertToJson();
+    // Convert to JSON.
+    crow::json::wvalue convertToJson() override;
 
-    // Update from JSON
-    void updateFromJson(crow::json::rvalue readValueJson);
+    // Update from JSON.
+    void updateFromJson(crow::json::rvalue readValueJson) override;
 
 private:
     std::string meatType;
@@ -38,4 +32,3 @@ private:
 };
 
 #endif // MEAT_H
-

@@ -4,8 +4,9 @@
 #include <crow.h>
 #include <string>
 #include <vector>
-#include <map>
 #include "Ingredient.h"
+#include "Meat.h"
+#include "Sauce.h"
 
 class Tacos
 {
@@ -14,56 +15,29 @@ public:
     Tacos() {}
     Tacos(crow::json::rvalue readValueJson);
 
-    // id get/set
+    // Getters
     std::string getId() const { return id; }
-    void setId(std::string idParam) { id = idParam; }
-
-    // ingredients get/set
     std::vector<Ingredient> getIngredients() const { return ingredients; }
-    void setIngredients(std::vector<Ingredient>& ingredientsParam) { ingredients = ingredientsParam; }
+    std::vector<Meat> getMeats() const { return meats; }
+    std::vector<Sauce> getSauces() const { return sauces; }
 
-    // cost get/set
-    float getCost() const { return cost; }
-    void setCost(float costParam) { cost = costParam; }
-
-    /* popularity get/set 
-    std::string getPopularity(int level) const 
-    {
-        auto i = popularity.find(level); 
-        if (i != popularity.end()) //check if popularity level in the map
-        {
-            return i->second;
-        }
-        return "unsure"; // if not return undefined popularity
-    }
-    void setPopularity(const std::map<int, std::string>& popularityParam) { popularity = popularityParam; }*/
-    
-    
-    
+    // Setters
+    void setId(std::string idParam) { id = idParam; }
+    void setIngredients(const std::vector<Ingredient>& ingredientsParam) { ingredients = ingredientsParam; }
+    void setMeats(const std::vector<Meat>& meatsParam) { meats = meatsParam; }
+    void setSauces(const std::vector<Sauce>& saucesParam) { sauces = saucesParam; }
 
     // Convert to JSON.
-    virtual crow::json::wvalue convertToJson();
+    crow::json::wvalue convertToJson();
 
     // Update from JSON.
-    virtual void updateFromJson(crow::json::rvalue readValueJson);
+    void updateFromJson(crow::json::rvalue readValueJson);
 
 private:
     std::string id;
     std::vector<Ingredient> ingredients;
-    float cost;
-    std::map<int, std::string> popularity;
-    // Initializer for a popularity map 
-    void initializePopularityMap();
-
-
-    /*void Album::initializePopularityMap() {
-    popularity[1] = "not popular";
-    popularity[2] = "somewhat popular";
-    popularity[3] = "popular";
-    popularity[4] = "very popular";
-    popularity[5] = "most popular";
-    
-    This will be in the .cpp file*/
+    std::vector<Meat> meats;
+    std::vector<Sauce> sauces;
 };
 
 #endif // TACOS_H
