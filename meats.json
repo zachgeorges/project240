@@ -1,0 +1,10 @@
+[
+    {
+      "id": "meat456",
+      "name": "Chicken",
+      "calories": 150,
+      "quantity": 1,
+      "meatType": "White Meat",
+      "isPork": false
+    }
+  ]

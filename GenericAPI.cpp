@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "Soda.h"
 #include "Tacos.h"
 #include "Meat.h"
@@ -177,7 +178,6 @@ response GenericAPI<T>::deleteResource(string id)
 }
 
 // Explicit template instantiation
-template class GenericAPI<Ingredient>;
 template class GenericAPI<Meat>;
 template class GenericAPI<Sauce>;
 template class GenericAPI<Soda>;

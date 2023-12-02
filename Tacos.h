@@ -17,13 +17,11 @@ public:
 
     // Getters
     std::string getId() const { return id; }
-    std::vector<Ingredient> getIngredients() const { return ingredients; }
     std::vector<Meat> getMeats() const { return meats; }
     std::vector<Sauce> getSauces() const { return sauces; }
 
     // Setters
     void setId(std::string idParam) { id = idParam; }
-    void setIngredients(const std::vector<Ingredient>& ingredientsParam) { ingredients = ingredientsParam; }
     void setMeats(const std::vector<Meat>& meatsParam) { meats = meatsParam; }
     void setSauces(const std::vector<Sauce>& saucesParam) { sauces = saucesParam; }
 
@@ -35,7 +33,6 @@ public:
 
 private:
     std::string id;
-    std::vector<Ingredient> ingredients;
     std::vector<Meat> meats;
     std::vector<Sauce> sauces;
 };

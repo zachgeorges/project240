@@ -3,7 +3,6 @@
 using namespace std;
 using namespace crow;
 
-extern map<std::string, Ingredient> ingredientsMap;
 extern map<std::string, Meat> meatsMap;
 extern map<std::string, Sauce> saucesMap;
 
@@ -18,19 +17,11 @@ json::wvalue Tacos::convertToJson()
     json::wvalue writeJson;
     writeJson["id"] = id;
 
-    // Convert ingredients to JSON
-    int index = 0;
-    for (Ingredient ingredient : ingredients) 
-    {
-        writeJson["ingredients"][index] = ingredient.convertToJson();
-        index++;
-    }
-
     // Convert meats to JSON
-    index = 0;
+    int index = 0;
     for (Meat meat : meats) 
     {
-        writeJson["meats"][index] = meat.convertToJson();
+        writeJson["meats"][index][id] = meat.convertToJson();
         index++;
     }
 
@@ -38,7 +29,7 @@ json::wvalue Tacos::convertToJson()
     index = 0;
     for (Sauce sauce : sauces) 
     {
-        writeJson["sauces"][index] = sauce.convertToJson();
+        writeJson["sauces"][index][id] = sauce.convertToJson();
         index++;
     }
 
@@ -49,12 +40,6 @@ json::wvalue Tacos::convertToJson()
 void Tacos::updateFromJson(json::rvalue readValueJson) 
 {
     id = readValueJson["id"].s();
-
-    // Setting ingredients
-    for (json::rvalue ingredientReadValueJson : readValueJson["ingredients"])
-    {
-        ingredients.push_back(ingredientsMap.at(ingredientReadValueJson["id"].s()));
-    }
 
     // Setting meats
     for (json::rvalue meatReadValueJson : readValueJson["meats"])

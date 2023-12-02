@@ -7,7 +7,7 @@
 #include "Tacos.h"
 #include "Meat.h"
 #include "Sauce.h"
-#include "Order.h"  
+#include "Order.h"
 #include "GenericAPI.h"
 #include "LoadUpdate.h"
 
@@ -15,7 +15,6 @@ using namespace std;
 using namespace crow;
 
 // Load resources from files.
-map<std::string, Ingredient> ingredientsMap = loadFromFile<Ingredient>("ingredients.json");
 map<std::string, Soda> sodasMap = loadFromFile<Soda>("sodas.json");
 map<std::string, Tacos> tacosMap = loadFromFile<Tacos>("tacos.json");
 map<std::string, Meat> meatsMap = loadFromFile<Meat>("meats.json");
@@ -25,7 +24,6 @@ map<std::string, Order> ordersMap = loadFromFile<Order>("orders.json");
 int main() 
 {
     // Create GenericAPIs to use in the CROW_ROUTES
-    GenericAPI<Ingredient>::resourceMap = ingredientsMap;
     GenericAPI<Soda>::resourceMap = sodasMap;
     GenericAPI<Tacos>::resourceMap = tacosMap;
     GenericAPI<Meat>::resourceMap = meatsMap;
@@ -36,13 +34,6 @@ int main()
     SimpleApp app;
 
     // Define resources:
-
-    // Ingredients
-    CROW_ROUTE(app, "/api/ingredients").methods("POST"_method)(GenericAPI<Ingredient>::createResource);
-    CROW_ROUTE(app, "/api/ingredients").methods("GET"_method)(GenericAPI<Ingredient>::readAllResources);
-    CROW_ROUTE(app, "/api/ingredients/<string>").methods("GET"_method)(GenericAPI<Ingredient>::readResource);
-    CROW_ROUTE(app, "/api/ingredients/<string>").methods("PUT"_method)(GenericAPI<Ingredient>::updateResource);
-    CROW_ROUTE(app, "/api/ingredients/<string>").methods("DELETE"_method)(GenericAPI<Ingredient>::deleteResource);
 
     // Sodas
     CROW_ROUTE(app, "/api/sodas").methods("POST"_method)(GenericAPI<Soda>::createResource);
@@ -83,10 +74,11 @@ int main()
     // Run the web service app.
     app.port(18888).run();
 
-    saveToFile<Ingredient>(GenericAPI<Ingredient>::resourceMap, "ingredients.json");
     saveToFile<Soda>(GenericAPI<Soda>::resourceMap, "sodas.json");
     saveToFile<Tacos>(GenericAPI<Tacos>::resourceMap, "tacos.json");
     saveToFile<Meat>(GenericAPI<Meat>::resourceMap, "meats.json");
     saveToFile<Sauce>(GenericAPI<Sauce>::resourceMap, "sauces.json");
     saveToFile<Order>(GenericAPI<Order>::resourceMap, "orders.json");
+
+    return 0;
 }

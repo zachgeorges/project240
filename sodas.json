@@ -1,14 +1,10 @@
 [
     {
-        "id": "1",
-        "size": "Medium",
-        "type": "Cola",
-        "isZeroCalorie": false
-    },
-    {
-        "id": "2",
-        "size": "Large",
-        "type": "Lemon-Lime",
-        "isZeroCalorie": true
+      "id": "soda101",
+      "name": "Cola",
+      "calories": 150,
+      "quantity": 1,
+      "sodaType": "Regular",
+      "isDiet": false
     }
-]
+  ]
