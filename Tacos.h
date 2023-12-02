@@ -26,7 +26,7 @@ public:
     float getCost() const { return cost; }
     void setCost(float costParam) { cost = costParam; }
 
-    // popularity get/set 
+    /* popularity get/set 
     std::string getPopularity(int level) const 
     {
         auto i = popularity.find(level); 
@@ -36,7 +36,7 @@ public:
         }
         return "unsure"; // if not return undefined popularity
     }
-    void setPopularity(const std::map<int, std::string>& popularityParam) { popularity = popularityParam; }
+    void setPopularity(const std::map<int, std::string>& popularityParam) { popularity = popularityParam; }*/
     
     
     

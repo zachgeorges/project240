@@ -3,30 +3,12 @@
 #include "Meat.h"
 #include "Sauce.h"
 #include "Order.h"
+#include "Ingredient.h"
 #include "GenericAPI.h"
 
 using namespace std;
 using namespace crow;
 
-// Explicit template instantiation for Soda
-template class GenericAPI<Soda>;
-template<> map<string, Soda> GenericAPI<Soda>::resourceMap;
-
-// Explicit template instantiation for Tacos
-template class GenericAPI<Tacos>;
-template<> map<string, Tacos> GenericAPI<Tacos>::resourceMap;
-
-// Explicit template instantiation for Meat
-template class GenericAPI<Meat>;
-template<> map<string, Meat> GenericAPI<Meat>::resourceMap;
-
-// Explicit template instantiation for Sauce
-template class GenericAPI<Sauce>;
-template<> map<string, Sauce> GenericAPI<Sauce>::resourceMap;
-
-// Explicit template instantiation for Order
-template class GenericAPI<Order>;
-template<> map<string, Order> GenericAPI<Order>::resourceMap;
 
 template<typename T> 
 map<string, T> GenericAPI<T>::resourceMap;
@@ -193,3 +175,11 @@ response GenericAPI<T>::deleteResource(string id)
         return response(404, "Resource Not Found");
     }
 }
+
+// Explicit template instantiation
+template class GenericAPI<Ingredient>;
+template class GenericAPI<Meat>;
+template class GenericAPI<Sauce>;
+template class GenericAPI<Soda>;
+template class GenericAPI<Tacos>;
+template class GenericAPI<Order>;
