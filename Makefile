@@ -1,4 +1,4 @@
-all: main static-analysis
+all: main static-analysis LoadUpdateTest
 
 main: main.o Ingredient.o Meat.o Sauce.o Soda.o Tacos.o Order.o GenericAPI.o 
 	g++ -lpthread main.o Ingredient.o Meat.o Sauce.o Soda.o Tacos.o Order.o GenericAPI.o  -o main
@@ -24,6 +24,8 @@ Tacos.o: Tacos.cpp Tacos.h
 Order.o: Order.cpp Order.h
 	g++ -Wall -c Order.cpp
 
+LoadUpdateTest: LoadUpdateTest.cpp LoadUpdate.h Soda.o
+	g++ -lpthread LoadUpdateTest.cpp Soda.o -o LoadUpdateTest
 
 static-analysis:
 	cppcheck *.cpp
