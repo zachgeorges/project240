@@ -1,10 +1,1 @@
-[
-    {
-      "id": "soda101",
-      "name": "Cola",
-      "calories": 150,
-      "quantity": 1,
-      "sodaType": "Regular",
-      "isDiet": false
-    }
-  ]
+[{"isZeroCalorie":true,"type":"Cola","id":"1","size":"Small"},{"size":"Large","id":"2","type":"Lemon-Lime","isZeroCalorie":false},{"isZeroCalorie":true,"type":"Orange","id":"3","size":"Medium"},{"isZeroCalorie":false,"type":"Root Beer","id":"4","size":"Small"}]

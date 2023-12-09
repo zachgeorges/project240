@@ -16,9 +16,9 @@ using namespace crow;
 
 // Load resources from files.
 map<std::string, Soda> sodasMap = loadFromFile<Soda>("sodas.json");
-map<std::string, Tacos> tacosMap = loadFromFile<Tacos>("tacos.json");
 map<std::string, Meat> meatsMap = loadFromFile<Meat>("meats.json");
 map<std::string, Sauce> saucesMap = loadFromFile<Sauce>("sauces.json");
+map<std::string, Tacos> tacosMap = loadFromFile<Tacos>("tacos.json");
 map<std::string, Order> ordersMap = loadFromFile<Order>("orders.json");
 
 int main() 

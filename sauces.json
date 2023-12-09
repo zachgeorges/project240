@@ -1,10 +1,1 @@
-[
-    {
-      "id": "sauce789",
-      "name": "Soy Sauce",
-      "calories": 10,
-      "quantity": 1,
-      "sauceType": "Soy",
-      "isSpicy": false
-    }
-  ]
+[{"sauceType":"Tomato","id":"1","calories":50,"quantity":150,"isSpicy":false,"name":"Tomato Sauce"},{"name":"Honey Mustard","isSpicy":false,"quantity":100,"calories":80,"id":"2","sauceType":"Mustard"},{"sauceType":"Sriracha","calories":30,"quantity":200,"id":"3","isSpicy":true,"name":"Spicy Sriracha"}]

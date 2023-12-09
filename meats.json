@@ -1,10 +1,1 @@
-[
-    {
-      "id": "meat456",
-      "name": "Chicken",
-      "calories": 150,
-      "quantity": 1,
-      "meatType": "White Meat",
-      "isPork": false
-    }
-  ]
+[{"meatType":"Chicken","calories":150,"quantity":200,"id":"1","isPork":false,"name":"Chicken Breast"},{"name":"Ground Beef","isPork":false,"id":"2","quantity":300,"calories":250,"meatType":"Beef"},{"meatType":"Pork","calories":300,"quantity":250,"id":"3","isPork":true,"name":"Pork Chops"}]

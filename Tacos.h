@@ -4,7 +4,6 @@
 #include <crow.h>
 #include <string>
 #include <vector>
-#include "Ingredient.h"
 #include "Meat.h"
 #include "Sauce.h"
 
